@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube 요약기",
+  "version": "1.0",
+  "description": "YouTube 영상을 요약해주는 확장 프로그램",
+  "permissions": ["activeTab", "scripting", "tabs"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
