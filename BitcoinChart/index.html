@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>간단한 홈페이지닿ㅎ</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.6;
+      }
+      header {
+        padding: 24px;
+        background: #4f46e5;
+        color: #fff;
+      }
+      header .container {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 16px;
+      }
+      .hero {
+        padding: 64px 24px;
+        background: linear-gradient(135deg, #eef2ff, #ffffff);
+      }
+      .hero .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        margin: 0 0 12px;
+        font-size: 32px;
+      }
+      .hero p {
+        margin: 0 0 24px;
+        color: #374151;
+      }
+      .hero .cta {
+        display: inline-block;
+        padding: 12px 16px;
+        background: #4f46e5;
+        color: #fff;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+      main {
+        padding: 32px 24px;
+      }
+      .grid {
+        max-width: 960px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 16px;
+        background: #fff;
+      }
+      .card h3 {
+        margin: 0 0 8px;
+      }
+      footer {
+        border-top: 1px solid #e5e7eb;
+        padding: 16px 24px;
+        text-align: center;
+        color: #6b7280;
+      }
+      @media (prefers-color-scheme: dark) {
+        .hero {
+          background: linear-gradient(135deg, #111827, #0b0b0b);
+        }
+        .card {
+          background: #111827;
+          border-color: #1f2937;
+        }
+        .hero p {
+          color: #9ca3af;
+        }
+        footer {
+          border-color: #1f2937;
+          color: #9ca3af;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <strong>My Home</strong>
+        <nav>
+          <a href="#features">기능</a>
+          <a href="#about">소개</a>
+          <a href="#contact">문의</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>간단한 홈페이지다다다다다</h1>
+        <p>가볍고 깔끔한 시작 템플릿입니다. 바로 내용을 채워보세요.</p>
+        <a class="cta" href="#features">시작하기</a>
+      </div>
+    </section>
+
+    <main>
+      <div id="features" class="grid">
+        <div class="card">
+          <h3>빠른 시작</h3>
+          <p>단일 HTML 파일만으로도 충분히 예쁜 레이아웃.</p>
+        </div>
+        <div class="card">
+          <h3>반응형</h3>
+          <p>모바일·데스크톱에서 자동으로 잘 보입니다.</p>
+        </div>
+        <div class="card">
+          <h3>다크 모드</h3>
+          <p>시스템 설정에 따라 자동 적용됩니다.</p>
+        </div>
+      </div>
+
+      <section id="about" class="grid" style="margin-top: 32px">
+        <div class="card" style="grid-column: 1 / -1">
+          <h3>소개</h3>
+          <p>이 템플릿은 간단한 랜딩이나 개인 페이지에 적합합니다.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="grid" style="margin-top: 32px">
+        <div class="card" style="grid-column: 1 / -1">
+          <h3>문의</h3>
+          <p>연락: <a href="mailto:you@example.com">you@example.com</a></p>
+        </div>
+      </section>
+
+      <section id="viz" class="grid" style="margin-top: 32px">
+        <div class="card" style="grid-column: 1 / -1">
+          <h3>KRW-BTC 일봉 시각화</h3>
+          <p style="margin: 0 0 12px">
+            파일: <code>KRW-BTC_2025-03-24_100.json</code>
+          </p>
+          <div id="priceChart" style="height: 240px"></div>
+        </div>
+        <div class="card" style="grid-column: 1 / -1; overflow: auto">
+          <h3 style="margin-bottom: 12px">데이터 미리보기 (최신 → 과거)</h3>
+          <table id="dataTable" style="width: 100%; border-collapse: collapse">
+            <thead>
+              <tr>
+                <th
+                  style="
+                    text-align: left;
+                    border-bottom: 1px solid #e5e7eb;
+                    padding: 8px;
+                  "
+                >
+                  날짜(KST)
+                </th>
+                <th
+                  style="
+                    text-align: right;
+                    border-bottom: 1px solid #e5e7eb;
+                    padding: 8px;
+                  "
+                >
+                  종가
+                </th>
+                <th
+                  style="
+                    text-align: right;
+                    border-bottom: 1px solid #e5e7eb;
+                    padding: 8px;
+                  "
+                >
+                  시가
+                </th>
+                <th
+                  style="
+                    text-align: right;
+                    border-bottom: 1px solid #e5e7eb;
+                    padding: 8px;
+                  "
+                >
+                  고가
+                </th>
+                <th
+                  style="
+                    text-align: right;
+                    border-bottom: 1px solid #e5e7eb;
+                    padding: 8px;
+                  "
+                >
+                  저가
+                </th>
+                <th
+                  style="
+                    text-align: right;
+                    border-bottom: 1px solid #e5e7eb;
+                    padding: 8px;
+                  "
+                >
+                  거래량
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> My Home. All rights reserved.</footer>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uplot@1.6.30/dist/uPlot.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/uplot@1.6.30/dist/uPlot.iife.min.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      async function loadAndRender() {
+        try {
+          const res = await fetch("./KRW-BTC_2025-03-24_100.json", {
+            cache: "no-store",
+          });
+          if (!res.ok) throw new Error("파일 로드 실패");
+          const raw = await res.json();
+
+          // 최신이 배열 앞쪽이므로 차트는 시간 오름차순으로 뒤집어 사용
+          const candles = Array.isArray(raw) ? raw.slice() : [];
+          const asc = candles.slice().reverse();
+
+          const timeLabels = asc.map(
+            (c) => c.candle_date_time_kst.split("T")[0]
+          );
+          const close = asc.map((c) => c.trade_price);
+
+          // uPlot은 x축에 숫자형(타임스탬프) 필요: 날짜 문자열 → epoch(ms)
+          const x = timeLabels.map((d) => new Date(d).getTime() / 1000); // seconds
+          const data = [x, close];
+
+          const el = document.getElementById("priceChart");
+          const opts = {
+            title: "종가 (KRW)",
+            width: el.clientWidth || 800,
+            height: 240,
+            cursor: { drag: { x: true, y: false } },
+            scales: {
+              x: { time: true },
+              y: {},
+            },
+            axes: [
+              { grid: { show: false } },
+              {
+                values: (u, vals) =>
+                  vals.map((v) => Number(v).toLocaleString()),
+              },
+            ],
+            series: [{}, { stroke: "#4f46e5", width: 2 }],
+          };
+          const u = new uPlot(opts, data, el);
+
+          // 표 렌더(최신 → 과거, 최대 20행)
+          const tbody = document.querySelector("#dataTable tbody");
+          const rows = candles.slice(0, 20);
+          const nf = new Intl.NumberFormat();
+          tbody.innerHTML = rows
+            .map((c) => {
+              const date = c.candle_date_time_kst.split("T")[0];
+              return `
+                <tr>
+                  <td style="padding:8px; border-bottom:1px solid #e5e7eb;">${date}</td>
+                  <td style="padding:8px; text-align:right; border-bottom:1px solid #e5e7eb;">${nf.format(
+                    c.trade_price
+                  )}</td>
+                  <td style="padding:8px; text-align:right; border-bottom:1px solid #e5e7eb;">${nf.format(
+                    c.opening_price
+                  )}</td>
+                  <td style="padding:8px; text-align:right; border-bottom:1px solid #e5e7eb;">${nf.format(
+                    c.high_price
+                  )}</td>
+                  <td style="padding:8px; text-align:right; border-bottom:1px solid #e5e7eb;">${nf.format(
+                    c.low_price
+                  )}</td>
+                  <td style="padding:8px; text-align:right; border-bottom:1px solid #e5e7eb;">${nf.format(
+                    c.candle_acc_trade_volume
+                  )}</td>
+                </tr>`;
+            })
+            .join("");
+        } catch (e) {
+          console.error(e);
+          const card = document.querySelector("#viz .card");
+          if (card) {
+            const p = document.createElement("p");
+            p.style.color = "#ef4444";
+            p.textContent =
+              "데이터를 불러오는 중 오류가 발생했습니다. 파일이 같은 폴더에 있는지 확인하세요.";
+            card.appendChild(p);
+          }
+        }
+      }
+
+      loadAndRender();
+    </script>
+  </body>
+</html>
